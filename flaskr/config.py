@@ -1,5 +1,5 @@
-SQLALCEMY_DATABASE_URI = 'sqlite:///flaskr.db'
-SECRET_KEY = 'seret key'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///flaskr.db'
+SECRET_KEY = 'secret key'
 
 # SECRET_KEYは本番環境では必ず変更すること
 # Flaskでの推奨設定
