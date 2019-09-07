@@ -10,10 +10,30 @@ def show_entries():
 @app.route('/add', methods=['POST'])
 def add_entry():
     entry = Entry(
-                titel=request.form['title'],
+                title=request.form['title'],
                 text=request.form['text']
                 )
     db.session.add(entry)
     db.session.commit()
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
+
+@app.route('/users/')
+def user_list():
+    return 'list users'
+
+@app.route('/users/<int:user_id>/')
+def user_detail(user_id):
+    return 'detail user ' + str(user_id)
+
+@app.route('/users/<int:user_id>/edit/', methods=['GET', 'POST'])
+def user_edhit(user_id):
+    return 'edit user ' + str(user_id)
+
+@app.route('/users/create/', methods=['GET', 'POST'])
+def user_create():
+    return 'create a new user'
+
+@app.route('/users/<int:user_id>/delete/', methods=['DELETE'])
+def user_delete(user_id):
+    return NotImplementedError('DELETE')
