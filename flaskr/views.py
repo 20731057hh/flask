@@ -10,7 +10,7 @@ def show_entries():
 @app.route('/add', methods=['POST'])
 def add_entry():
     entry = Entry(
-                titel=request.form['title'],
+                title=request.form['title'],
                 text=request.form['text']
                 )
     db.session.add(entry)
