@@ -17,7 +17,7 @@ class User(db.Model):
     def _set_password(self, password):
         if password:
             password = password.strip() #空白を削除
-        self._get_password = generate_password_hash(password)
+        self._password = generate_password_hash(password)
     password_descriptor = property(_get_password, _set_password)
     password = synonym('_password', descriptor=password_descriptor)
 
@@ -36,7 +36,7 @@ class User(db.Model):
 
     def __repr__(self):
         return u'<User id={self.id} email={self.email!r}>'.format(
-                sefl=self)
+                self=self)
 
 class Entry(db.Model):
     __tablename__ = 'entries'
