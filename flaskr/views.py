@@ -1,4 +1,4 @@
-from flask import request, redirect, url_for, render_template, flash, abort, jsonify, session
+from flask import request, redirect, url_for, render_template, flash, abort, jsonify, session, g
 from flaskr import app, db
 from flaskr.models import Entry, User
 
@@ -68,7 +68,7 @@ def user_delete(user_id):
 def login():
     if request.method == 'POST':
         user, authenticated = User.authenticate(db.session.query,
-                    request.form['user_id'], request.form['password'])
+                    request.form['email'], request.form['password'])
         if authenticated:
             session['user_id'] = user.id
             flash('You were logged in')
