@@ -5,12 +5,12 @@ app = Flask(__name__,
             static_folder='../frontend/dist/static',
             template_folder='../frontend/dist')
 
-@app.route('/api/random')
-def random_number():
-    response = {
-        'randomNumber':randint(1,100)
-    }
-    return jsonify(response)
+# @app.route('/api/random')
+# def random_number():
+#     response = {
+#         'randomNumber':randint(1,100)
+#     }
+#     return jsonify(response)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
